@@ -1146,17 +1146,17 @@ textarea.input-field {
 	flex-wrap: wrap;
 }
 
-.card {
-	padding: 20px;
-	width: 300px;
-	height: 300px;
-	margin: 15px;
-	text-align: center;
-	background-color: #fff;
-	border-radius: 15px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-	overflow: hidden;
-	transition: all 0.3s ease-in-out;
+/* .card {
+	
+} */
+
+/* .card img {
+	width: 50%;
+	object-fit: cover;
+} */
+
+.card-content {
+	width: 50%;
 }
 
 .card:hover {
@@ -1168,24 +1168,6 @@ textarea.input-field {
 	font-size: 1.7em;
 	margin-top: 25px;
 	color: #333;
-}
-
-.card-description {
-	font-size: 2em; /* 进一步增大价格字体 */
-	color: #ffc107; /* 醒目的黄色 */
-	font-weight: bold; /* 加粗价格字体 */
-	margin: 10px 0;
-	position: relative; /* 设置相对定位用于绝对定位原价 */
-}
-
-.original-price {
-	font-size: 1em; /* 原价字体大小 */
-	color: #777; /* 原价的颜色 */
-	text-decoration: line-through; /* 划掉效果 */
-	top: 0; /* 定位到价格顶部 */
-	right: 0; /* 定位到价格右边 */
-	margin-right: 10px; /* 与价格有一定间隔 */
-	font-weight: normal; /* 原价不加粗 */
 }
 
 .translation-process-section {
@@ -1233,4 +1215,51 @@ textarea.input-field {
 .step-description {
 	font-size: 16px;
 	color: #555;
+}
+
+/* 追加 */
+
+/* 卡片样式 */
+.card {
+	display: grid; /* 使用网格布局 */
+	grid-template-columns: 3fr 4fr; /* 比如1比2的比例分配图片和文字区域 */
+  grid-template-rows: auto; /* 行高自动，根据内容调整 */
+	align-items: center; /* 垂直居中对齐 */
+	grid-template-areas:
+		"photo name"
+		"photo description"; /* 网格区域布局 */
+	gap: 20px; /* 列之间的间隔 */
+	padding: 2vw; /* 内边距 */
+	width: calc(50% - 4vw); /* 宽度计算公式 */
+	height: 300px; /* 高度计算公式 */
+	margin: 2vw; /* 外边距 */
+	background-color: #fff; /* 背景颜色 */
+	border-radius: 15px; /* 边框圆角 */
+	box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.08); /* 阴影效果 */
+	overflow: hidden; /* 内容溢出时隐藏 */
+	transition: all 0.3s ease-in-out; /* 过渡效果 */
+}
+
+.card-name {
+	grid-area: name; /* 设置名称区域 */
+	font-size: 1.7em;
+	margin-top: 25px;
+	color: #333;
+	font-weight: bold;
+}
+
+.card-photo {
+	grid-area: photo; /* 设置照片区域 */
+	width: 100%; /* Increase the width to make the photo larger */
+	height: auto;
+	object-fit: cover;
+	border-radius: 15px;
+}
+
+.card-description {
+	font-size: 1.1em;
+	color: #333;
+	margin-top: 25px;
+	max-height: 130px;
+	overflow: auto;
 }
