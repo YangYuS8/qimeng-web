@@ -37,3 +37,20 @@ function isElementInViewport(el) {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
     );
 }
+
+// 3D轮播图
+view.addEventListener("animationiteration", () => {
+    const current = view.querySelector(".current") || view.firstElementChild;
+    current.classList.remove("current");
+    if (current.nextElementSibling) {
+      current.nextElementSibling.classList.add("current");
+    } else {
+      view.firstElementChild.classList.add("current");
+    }
+  });
+  view.addEventListener("click", (ev) => {
+    const current = view.querySelector(".current") || view.firstElementChild;
+    current.classList.remove("current");
+    ev.target.closest(".item").classList.add("current");
+  });
+  
